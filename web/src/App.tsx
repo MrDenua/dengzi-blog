@@ -6,6 +6,9 @@ import NavBarComponent from "./component/NavBarComponent";
 import DrawerComponent from "./component/DrawerComponent";
 import Drawer from "@material-ui/core/Drawer";
 import ArticleListComponent from "./component/ArticleListComponent";
+import AboutMeComponent from "./component/AboutMeComponent";
+import {BrowserRouter, Route} from "react-router-dom"
+import FriendsComponent from "./component/FriendsComponent";
 
 class MainComponent extends React.Component {
 
@@ -22,7 +25,16 @@ class MainComponent extends React.Component {
                     <Grid item={true} xs md xl lg>
                         <Box height={"100vh"} width={"100%"} bgcolor="background.default">
                             <NavBarComponent/>
-                            <ArticleListComponent/>
+                            <BrowserRouter>
+                                <Route path="/">
+                                    {/*<Route path="/" component={ArticleListComponent}/>*/}
+                                    <Route path="/home" component={ArticleListComponent}/>
+                                    <Route path="/about" component={AboutMeComponent}/>
+                                    <Route path="/friends" component={FriendsComponent}/>
+                                    <Route path="/article:id" component={ArticleListComponent}/>
+                                </Route>
+                            </BrowserRouter>
+
                         </Box>
                     </Grid>
                 </Grid>
