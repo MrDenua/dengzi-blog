@@ -12,21 +12,26 @@ const style = {
     height: "100vh",
     overflow: "auto"
 };
+
 const categories: NavItem[] = ["Java", "Python", "TypeScript", "Android"]
-    .map((value) => of(value, "/category/" + value.toLowerCase()));
+    .map((value) => createNav(value, "/category/" + value.toLowerCase()));
 
 const nav: NavItem[] = [
-    of("Home", "/home"),
-    of("Category", "/category", categories),
-    of("Friends", "/friends"),
-    of("About", "/about")
+    createNav("New", "/new"),
+    createNav("Home", "/home"),
+    createNav("Category", "/category", categories),
+    createNav("Friends", "/friends"),
+    createNav("About", "/about"),
+    createNav("",""),
+    createNav("Settings","/settings"),
+    createNav("Login","/login")
 ];
 
-function of(title: string, path: string = "", child: undefined | NavItem[] = undefined): NavItem {
+function createNav(title: string, path: string = "", child: undefined | NavItem[] = undefined): NavItem {
     return {title: title, path: path, currentPath: "/", child: child, onSelect: ()=>{}}
 }
 
-function DrawerHeaderComp(prop: any) {
+function DrawerHeaderComp() {
     return (
         <Grid container justify="center" alignItems="center" style={{height: "200px"}}>
             <Grid container justify="center" alignItems="flex-start">
@@ -38,7 +43,7 @@ function DrawerHeaderComp(prop: any) {
     )
 }
 
-class DrawerComponent extends React.Component<any, { currentPath: string }> {
+export default class DrawerComponent extends React.Component<any, { currentPath: string }> {
 
     constructor(props: Readonly<any>) {
         super(props);
@@ -58,16 +63,14 @@ class DrawerComponent extends React.Component<any, { currentPath: string }> {
                     <Divider/>
                     <List>
                         {nav.map((value: NavItem) => (
+                            value.title===""? <Divider/> :
                             <DrawerNavItem currentPath={this.state.currentPath} onSelect={this.onItemSelect}
                                            title={value.title} path={value.path}
                                            child={value.child} key={value.path}/>)
                         )}
                     </List>
-                    <Divider/>
                 </Box>
             </Hidden>
         )
     }
 }
-
-export default DrawerComponent

@@ -30,6 +30,8 @@ export type NavItem = {
     parent?: NavItem;
 }
 
+export type NavItemEmpty = {}
+
 export default class DrawerNavItem extends React.Component<NavItem, { expand: boolean }> {
 
     constructor(props: Readonly<NavItem>) {
