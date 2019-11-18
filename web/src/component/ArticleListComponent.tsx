@@ -50,14 +50,14 @@ class ArticleListComponent extends React.Component<{ type: string }, any> {
                 date: new Date(),
                 view: 122
             },
-            {title: "How to make more money.", content: "I DK", date: new Date(), view: 122},
-            {title: "How to make more money.", content: "I DK", date: new Date(), view: 122},
-            {title: "How to make more money.", content: "I DK", date: new Date(), view: 122},
-            {title: "How to make more money.", content: "I DK", date: new Date(), view: 122},
-            {title: "How to make more money.", content: "I DK", date: new Date(), view: 122},
-            {title: "How to make more money.", content: "I DK", date: new Date(), view: 122},
-            {title: "How to make more money.", content: "I DK", date: new Date(), view: 122},
-            {title: "How to make more money.", content: "I DK", date: new Date(), view: 122},
+            {title: "How to make more money1.", content: "I DK", date: new Date(), view: 122},
+            {title: "How to make more money2.", content: "I DK", date: new Date(), view: 122},
+            {title: "How to make more money3.", content: "I DK", date: new Date(), view: 122},
+            {title: "How to make more money4.", content: "I DK", date: new Date(), view: 122},
+            {title: "How to make more money5.", content: "I DK", date: new Date(), view: 122},
+            {title: "How to make more money6.", content: "I DK", date: new Date(), view: 122},
+            {title: "How to make more money7.", content: "I DK", date: new Date(), view: 122},
+            {title: "How to make more money8.", content: "I DK", date: new Date(), view: 122},
         ]
     }
 
@@ -66,7 +66,7 @@ class ArticleListComponent extends React.Component<{ type: string }, any> {
         return (<Box paddingLeft={"40px"} paddingTop={"50px"} height={"85vh"} paddingRight="40px"
                      style={{overflow: "auto"}}>
             {this._article.map((value) => (
-                <ArticleListItemComponent article={value}/>
+                <ArticleListItemComponent key={value.title} article={value}/>
             ))}
         </Box>);
     }

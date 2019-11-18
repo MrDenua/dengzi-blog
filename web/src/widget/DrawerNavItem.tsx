@@ -19,32 +19,38 @@ const style = {
     }
 };
 
+type OnSelectListener = (path: string) => void;
+
 export type NavItem = {
     title: string;
     path: string;
+    currentPath: string;
+    onSelect: OnSelectListener;
     child?: NavItem[];
     parent?: NavItem;
 }
 
-export default class DrawerNavItem extends React.Component<NavItem, { expand: boolean, selected: boolean }> {
+export default class DrawerNavItem extends React.Component<NavItem, { expand: boolean }> {
 
     constructor(props: Readonly<NavItem>) {
         super(props);
         this.handleItemClick = this.handleItemClick.bind(this);
         this.isCurrentPath = this.isCurrentPath.bind(this);
-        this.state = {expand: false, selected: this.isCurrentPath()}
+        this.state = {expand: false};
     }
 
     handleItemClick(e: React.MouseEvent): void {
         e.preventDefault();
-        this.setState({
-            expand: !this.state.expand,
-            selected: this.hasChild() ? false : this.isCurrentPath()
-        });
+        if (this.hasChild()) {
+            this.setState({expand: !this.state.expand});
+            return;
+        }
+        if (this.props.onSelect !== undefined) {
+            this.props.onSelect(this.props.path);
+        }
     }
 
     render() {
-
         let item: JSX.Element;
         let child: JSX.Element | null = null;
         let iconRight: JSX.Element | null = null;
@@ -56,11 +62,11 @@ export default class DrawerNavItem extends React.Component<NavItem, { expand: bo
             iconRight = this.state.expand ? <ExpandLess/> : <ExpandMore/>
         }
         item = (
-            <ListItem button key={this.props.path} selected={this.state.selected}
+            <ListItem button key={this.props.path} selected={this.isCurrentPath()}
                       onClick={this.handleItemClick}
                       style={this.props.parent !== undefined ? style.child : {}}>
                 {iconLeft}
-                <Link to={this.props.path} style={style.link}>
+                <Link to={this.hasChild() ? "#" : this.props.path} style={style.link}>
                     <ListItemText primary={this.props.title}/>
                 </Link>
                 {iconRight}
@@ -72,7 +78,8 @@ export default class DrawerNavItem extends React.Component<NavItem, { expand: bo
                 <Collapse in={this.state.expand} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
                         {(this.props.child.map((item) => (
-                            <DrawerNavItem title={item.title} path={item.path} parent={item}/>
+                            <DrawerNavItem currentPath={this.props.currentPath} onSelect={this.props.onSelect}
+                                           title={item.title} path={item.path} parent={item} key={item.path}/>
                         )))}
                     </List>
                 </Collapse>
@@ -83,7 +90,7 @@ export default class DrawerNavItem extends React.Component<NavItem, { expand: bo
     }
 
     private isCurrentPath(): boolean {
-        return window.location.pathname.toLowerCase() === this.props.path;
+        return this.props.currentPath === this.props.path;
     }
 
     private hasChild(c: NavItem[] | undefined = this.props.child): c is NavItem[] {

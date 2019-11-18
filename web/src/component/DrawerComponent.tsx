@@ -6,22 +6,25 @@ import Hidden from "@material-ui/core/Hidden";
 import Avatar from "@material-ui/core/Avatar";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import Paper from "@material-ui/core/Paper";
 import DrawerNavItem, {NavItem} from "../widget/DrawerNavItem";
 
-const categories: NavItem[] = [
-    {title: "Java", path: "/category/java"},
-    {title: "Python", path: "/category/python"},
-    {title: "Web", path: "/category/web"},
-    {title: "Other", path: "/category/other"},
-];
+const style = {
+    height: "100vh",
+    overflow: "auto"
+};
+const categories: NavItem[] = ["Java", "Python", "TypeScript", "Android"]
+    .map((value) => of(value, "/category/" + value.toLowerCase()));
 
 const nav: NavItem[] = [
-    {title: "Home", path: "/home"},
-    {title: "Category", path: "/category", child: categories},
-    {title: "Friends", path: "/friends"},
-    {title: "About", path: "/about"}
+    of("Home", "/home"),
+    of("Category", "/category", categories),
+    of("Friends", "/friends"),
+    of("About", "/about")
 ];
+
+function of(title: string, path: string = "", child: undefined | NavItem[] = undefined): NavItem {
+    return {title: title, path: path, currentPath: "/", child: child, onSelect: ()=>{}}
+}
 
 function DrawerHeaderComp(prop: any) {
     return (
@@ -35,27 +38,36 @@ function DrawerHeaderComp(prop: any) {
     )
 }
 
-function DrawerComponent() {
+class DrawerComponent extends React.Component<any, { currentPath: string }> {
 
-    return (
-        <Paper style={{zIndex: 1200}}>
+    constructor(props: Readonly<any>) {
+        super(props);
+        this.onItemSelect = this.onItemSelect.bind(this);
+        this.state = {currentPath: "/"};
+    }
+
+    onItemSelect(path: string) {
+        this.setState({currentPath: path})
+    }
+
+    render() {
+        return (
             <Hidden xsDown implementation="css">
-                <Box height={"100vh"} bgcolor="background.paper" style={{overflow: "auto"}}>
+                <Box bgcolor="background.paper" style={style}>
                     <DrawerHeaderComp/>
                     <Divider/>
                     <List>
-                        {
-                            nav.map((value: NavItem) => (
-                                <DrawerNavItem title={value.title} path={value.path} child={value.child}/>)
-                            )
-                        }
+                        {nav.map((value: NavItem) => (
+                            <DrawerNavItem currentPath={this.state.currentPath} onSelect={this.onItemSelect}
+                                           title={value.title} path={value.path}
+                                           child={value.child} key={value.path}/>)
+                        )}
                     </List>
                     <Divider/>
                 </Box>
             </Hidden>
-
-        </Paper>
-    )
+        )
+    }
 }
 
 export default DrawerComponent
