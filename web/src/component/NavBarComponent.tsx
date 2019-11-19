@@ -5,7 +5,6 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import {Close, Search} from "@material-ui/icons";
 import InputBase from "@material-ui/core/InputBase";
 import {fade} from "@material-ui/core/styles";
-import {LocationState, createBrowserHistory} from "history";
 
 class NavBarComponent extends Component<{ onMenuClick: (drawerHidden: boolean) => void }, { drawerHidden: boolean }> {
 

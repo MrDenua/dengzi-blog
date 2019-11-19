@@ -64,8 +64,9 @@ export default class DrawerComponent extends React.Component<any, { currentPath:
                     <Divider/>
                     <List>
                         {nav.map((value: NavItem) => (
-                            value.title===""? <Divider/> :
-                            <DrawerNavItem currentPath={this.state.currentPath} onSelect={this.onItemSelect}
+                            value.title===""
+                                ? <Divider key={value.path}/>
+                                : <DrawerNavItem currentPath={this.state.currentPath} onSelect={this.onItemSelect}
                                            title={value.title} path={value.path}
                                            child={value.child} key={value.path}/>)
                         )}
