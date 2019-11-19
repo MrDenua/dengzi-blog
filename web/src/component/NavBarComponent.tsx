@@ -5,8 +5,28 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import {Close, Search} from "@material-ui/icons";
 import InputBase from "@material-ui/core/InputBase";
 import {fade} from "@material-ui/core/styles";
+import {LocationState, createBrowserHistory} from "history";
 
-class NavBarComponent extends Component {
+class NavBarComponent extends Component<{ onMenuClick: (drawerHidden: boolean) => void }, { drawerHidden: boolean }> {
+
+    constructor(props: Readonly<{ onMenuClick: () => void }>) {
+        super(props);
+        this.handMenuIconClick = this.handMenuIconClick.bind(this);
+        this.state = {drawerHidden: false}
+    }
+
+    handMenuIconClick() {
+
+        this.setState({drawerHidden: !this.state.drawerHidden});
+        this.props.onMenuClick(!this.state.drawerHidden);
+    }
+
+    componentDidMount(): void {
+
+        // this.context.router.history.listen((r: LocationState) => {
+        //     console.log(r);
+        // });
+    }
 
     render() {
 
@@ -14,7 +34,7 @@ class NavBarComponent extends Component {
             <div style={{flexGrow: 1}}>
                 <AppBar position="static">
                     <Toolbar>
-                        <IconButton edge="start" color="inherit" aria-label="menu">
+                        <IconButton edge="start" color="inherit" aria-label="menu" onClick={this.handMenuIconClick}>
                             <Close/>
                         </IconButton>
                         <Typography variant="h6" style={{

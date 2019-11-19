@@ -1,5 +1,5 @@
 import React from "react";
-import ArticleListItemComponent from "./ArticleListItemComponent";
+import ArticleListItem from "./widget/ArticleListItem";
 import {Box} from "@material-ui/core";
 
 export interface Article {
@@ -63,13 +63,17 @@ class ArticleListComponent extends React.Component<{ type: string }, any> {
 
     render() {
 
-        return (<Box paddingLeft={"40px"} paddingTop={"50px"} height={"85vh"} paddingRight="40px"
-                     style={{overflow: "auto"}}>
+        return (<Box style={StyleMainContainer}>
             {this._article.map((value) => (
-                <ArticleListItemComponent key={value.title} article={value}/>
+                <ArticleListItem key={value.title} article={value}/>
             ))}
         </Box>);
     }
 }
-
+const StyleMainContainer = {
+    paddingLeft: '40px',
+    paddingTop: '50px',
+    paddingRight: '40px',
+    height: '85vh',
+};
 export default ArticleListComponent

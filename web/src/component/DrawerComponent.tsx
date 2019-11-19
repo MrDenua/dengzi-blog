@@ -6,11 +6,12 @@ import Hidden from "@material-ui/core/Hidden";
 import Avatar from "@material-ui/core/Avatar";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import DrawerNavItem, {NavItem} from "../widget/DrawerNavItem";
+import DrawerNavItem, {NavItem} from "./widget/DrawerNavItem";
 
 const style = {
     height: "100vh",
-    overflow: "auto"
+    overflow: "auto",
+    borderRight: "1px #ccc solid"
 };
 
 const categories: NavItem[] = ["Java", "Python", "TypeScript", "Android"]
@@ -48,7 +49,7 @@ export default class DrawerComponent extends React.Component<any, { currentPath:
     constructor(props: Readonly<any>) {
         super(props);
         this.onItemSelect = this.onItemSelect.bind(this);
-        this.state = {currentPath: "/"};
+        this.state = {currentPath: window.location.pathname};
     }
 
     onItemSelect(path: string) {

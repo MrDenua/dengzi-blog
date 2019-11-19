@@ -12,10 +12,15 @@ const style = {
         display: "block",
         color: "black",
         width: "100%",
-        textDecoration: "none"
+        textDecoration: "none",
+        padding: "8px 16px" // spacing 2, 3
     },
     child: {
-        paddingLeft: "32px"
+        display: "block",
+        color: "black",
+        width: "100%",
+        textDecoration: "none",
+        padding: "8px 32px"
     }
 };
 
@@ -30,8 +35,6 @@ export type NavItem = {
     parent?: NavItem;
 }
 
-export type NavItemEmpty = {}
-
 export default class DrawerNavItem extends React.Component<NavItem, { expand: boolean }> {
 
     constructor(props: Readonly<NavItem>) {
@@ -39,6 +42,12 @@ export default class DrawerNavItem extends React.Component<NavItem, { expand: bo
         this.handleItemClick = this.handleItemClick.bind(this);
         this.isCurrentPath = this.isCurrentPath.bind(this);
         this.state = {expand: false};
+    }
+
+    componentDidMount(): void {
+        if (this.props.currentPath.startsWith(this.props.path)) {
+            this.setState({expand: true});
+        }
     }
 
     handleItemClick(e: React.MouseEvent): void {
@@ -65,10 +74,11 @@ export default class DrawerNavItem extends React.Component<NavItem, { expand: bo
         }
         item = (
             <ListItem button key={this.props.path} selected={this.isCurrentPath()}
-                      onClick={this.handleItemClick}
-                      style={this.props.parent !== undefined ? style.child : {}}>
+                      style={{padding: "0px"}}
+                      onClick={this.handleItemClick}>
                 {iconLeft}
-                <Link to={this.hasChild() ? "#" : this.props.path} style={style.link}>
+                <Link to={this.hasChild() ? "#" : this.props.path}
+                      style={this.props.parent !== undefined ? style.child : style.link}>
                     <ListItemText primary={this.props.title}/>
                 </Link>
                 {iconRight}

@@ -1,12 +1,12 @@
 import React from "react";
 
-class AboutComponent extends React.Component {
+class ArchiveComponent extends React.Component {
 
     render() {
         return (<div>
-
+            ArchiveComponent
         </div>)
     }
 }
 
-export default AboutComponent
+export default ArchiveComponent

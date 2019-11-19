@@ -1,13 +1,14 @@
 import React from "react";
-import {Article} from "./ArticleListComponent";
+import {Article} from "../ArticleListComponent";
 import {Card} from "@material-ui/core";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+import {Link} from "react-router-dom";
 
-class ArticleListItemComponent extends React.Component<{ article: Article }, any> {
+class ArticleListItem extends React.Component<{ article: Article }, any> {
 
     private _article: Article;
 
@@ -29,11 +30,13 @@ class ArticleListItemComponent extends React.Component<{ article: Article }, any
                                 component={"p"}>{this._article.content}</Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size={"small"} color={"primary"}>Read More</Button>
+                    <Link to={"/article/1"} style={{textDecoration:"none"}}>
+                        <Button size={"small"} color={"primary"}>Read More</Button>
+                    </Link>
                 </CardActions>
             </Card>
         </Box>);
     }
 }
 
-export default ArticleListItemComponent
+export default ArticleListItem
