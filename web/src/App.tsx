@@ -7,7 +7,6 @@ import DrawerComponent from "./component/DrawerComponent";
 import Drawer from "@material-ui/core/Drawer";
 import MainRouter from "./router/MainRouter";
 import {BrowserRouter, Router} from "react-router-dom";
-import {createBrowserHistory} from "history";
 
 class MainComponent extends React.Component<any, { drawerHidden: boolean }> {
 

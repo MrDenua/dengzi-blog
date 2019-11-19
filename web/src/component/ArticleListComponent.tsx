@@ -9,12 +9,13 @@ export interface Article {
     view: number
 }
 
-class ArticleListComponent extends React.Component<{ type: string }, any> {
+class ArticleListComponent extends React.Component<{ type?: string }, any> {
 
     private _article: Article[];
 
     constructor(props: Readonly<any>) {
         super(props);
+
         this._article = [
             {
                 title: "嵌套关系.",
@@ -62,7 +63,6 @@ class ArticleListComponent extends React.Component<{ type: string }, any> {
     }
 
     render() {
-
         return (<Box style={StyleMainContainer}>
             {this._article.map((value) => (
                 <ArticleListItem key={value.title} article={value}/>
