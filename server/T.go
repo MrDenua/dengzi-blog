@@ -6,6 +6,66 @@ import (
 	"time"
 )
 
+func d(i int) {
+	fmt.Print(i)
+}
+
+func deferStatement() {
+	fmt.Println("defer...")
+	defer d(1)
+	d(2)
+	defer fmt.Println("world")
+	fmt.Println("hello")
+}
+
+func switchStatement() {
+	fmt.Println("switch statement")
+	i := 1
+	switch i {
+	case 1:
+		fmt.Println(1)
+		fallthrough // not break, go through
+	case 2:
+		fmt.Println(2)
+	case 3:
+		fmt.Println(3)
+	}
+
+	t := time.Now()
+	switch {
+	case t.Hour() < 12:
+		fmt.Println("Good morning!")
+	case t.Hour() < 17:
+		fmt.Println("Good afternoon.")
+	default:
+		fmt.Println("Good evening.")
+	}
+	fmt.Println("When's Saturday?")
+	today := time.Now().Weekday()
+	switch time.Saturday {
+	case today + 0:
+		fmt.Println("Today.")
+	case today + 1:
+		fmt.Println("Tomorrow.")
+	case today + 2:
+		fmt.Println("In two days.")
+	default:
+		fmt.Println("Too far away.")
+	}
+}
+
+func forStatement() {
+	fmt.Println("for statement")
+	for i := 0; i < 5; i++ {
+		fmt.Println(i)
+	}
+	j := 0
+	for j < 7 { // while(j<7)
+		j++
+	}
+	fmt.Println(j)
+}
+
 func typeConvert() {
 	var a float64 = math.Pi
 	var b float32 = float32(a)
@@ -61,4 +121,7 @@ func main() {
 	variable()
 	variable2()
 	typeConvert()
+	forStatement()
+	switchStatement()
+	deferStatement()
 }
