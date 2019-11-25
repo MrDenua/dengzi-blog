@@ -79,6 +79,9 @@ var (
 ) // declare variable out function
 
 func variable2() {
+	var b [2]int32
+	b = [2]int32{2, 32}
+	fmt.Println(b)
 	fmt.Println("Max int=", MaxInt)
 	fmt.Println(Enable)
 }
