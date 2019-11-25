@@ -6,6 +6,14 @@ import (
 	"time"
 )
 
+func varFunc() {
+
+	f1 := func(a, b string) string {
+		return a + b
+	}
+	fmt.Println("fun var ", f1("a", "b"))
+}
+
 func d(i int) {
 	fmt.Print(i)
 }
@@ -124,4 +132,5 @@ func main() {
 	forStatement()
 	switchStatement()
 	deferStatement()
+	varFunc()
 }
