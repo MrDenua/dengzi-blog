@@ -7,7 +7,7 @@ export const Router = {
     main: [
         {
             path: '/',
-            exct:true,
+            exact:true,
             component: ArticleListComponent
         },
         {

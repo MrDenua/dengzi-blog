@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d86c1d96-2e92-4d05-a6f6-625f9478d827" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/goroutine.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/T.go" beforeDir="false" afterPath="$PROJECT_DIR$/T.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/complexType.go" beforeDir="false" afterPath="$PROJECT_DIR$/complexType.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web/src/router/router.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../web/src/router/router.tsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,7 +21,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="H:\Go" />
+  <component name="GOROOT" path="D:\go\go1.13.4" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -104,7 +106,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="golang" />
     <MESSAGE value="statement" />
-    <MESSAGE value="pointer" />
-    <option name="LAST_COMMIT_MESSAGE" value="pointer" />
+    <option name="LAST_COMMIT_MESSAGE" value="statement" />
   </component>
 </project>
