@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d86c1d96-2e92-4d05-a6f6-625f9478d827" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/goroutine.go" afterDir="false" />
+    <list default="true" id="d86c1d96-2e92-4d05-a6f6-625f9478d827" name="Default Changelist" comment="statement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/T.go" beforeDir="false" afterPath="$PROJECT_DIR$/T.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/complexType.go" beforeDir="false" afterPath="$PROJECT_DIR$/complexType.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/src/router/router.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../web/src/router/router.tsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,7 +17,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="D:\go\go1.13.4" />
+  <component name="GOROOT" path="H:\Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -64,7 +60,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Build.go build complexType.go">
+  <component name="RunManager" selected="Go Build.go build main.go">
     <configuration name="go build T.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -72,7 +68,7 @@
       <filePath value="$PROJECT_DIR$/T.go" />
       <method v="2" />
     </configuration>
-    <configuration name="go build complexType.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build complexType.go" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
       <module name="server" />
       <working_directory value="$PROJECT_DIR$/" />
       <kind value="FILE" />
@@ -80,9 +76,17 @@
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build complexType.go" />
+        <item itemvalue="Go Build.go build main.go" />
         <item itemvalue="Go Build.go build T.go" />
       </list>
     </recent_temporary>
