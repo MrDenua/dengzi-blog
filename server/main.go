@@ -3,7 +3,8 @@ package main
 import (
 	"fmt"
 	"github.com/astaxie/beego"
-	"github.com/astaxie/beego/context"
+	"github.com/astaxie/beego/orm"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 type MainController struct {
@@ -14,24 +15,34 @@ func (this *MainController) Get() {
 
 	request := this.Ctx.Request
 	fmt.Println(request.Proto, request.Method, request.Host, request.URL.RawPath)
-	this.Ctx.WriteString("<h1>Hello World</h1>")
+	this.TplName = "index.tpl"
 }
 
-type RouterX struct {
-	beego.ControllerInterface
+func init() {
+
 }
 
-func (this RouterX) Init(ct *context.Context, controllerName, actionName string, app interface{}) {
-	fmt.Println(ct.Request.URL)
-	fmt.Println(controllerName, actionName)
-}
+func initDb() {
+	dbUser := beego.AppConfig.String("mysqluser")
+	dbPass := beego.AppConfig.String("mysqlpass")
+	dbUrl := beego.AppConfig.String("mysqlurls")
+	dbName := beego.AppConfig.String("mysqldb")
 
-func (this RouterX) Get() {
-	fmt.Println("GETTTf")
+	err := orm.RegisterDriver("mysql", orm.DRMySQL)
+	if err != nil {
+		fmt.Println("database error", err)
+		return
+	}
+
+	err1 := orm.RegisterDataBase("default", "mysql",
+		dbUser+":"+dbUrl+"@/"+dbName+"?charset=utf8&passwd="+dbPass)
+	if err1 != nil {
+		fmt.Println(err1)
+	}
 }
 
 func main() {
-	beego.AutoRouter(&RouterX{})
+
 	beego.Router("/", &MainController{})
 	beego.Run()
 }
