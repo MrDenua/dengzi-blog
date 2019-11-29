@@ -1,36 +1,35 @@
 package main
 
+//
 import (
-	"astaxie/beego"
-	"astaxie/beego/orm"
-	"fmt"
-	_ "go-sql-driver/mysql"
-	"server/controllers"
+	"github.com/kataras/iris"
+	"github.com/kataras/iris/context"
+	"github.com/kataras/iris/middleware/logger"
+	"github.com/kataras/iris/middleware/recover"
 )
 
-func init() {
-	initDb()
-}
-
-//noinspection ALL
-func initDb() {
-	mysql_url := beego.AppConfig.String("mysql_url")
-
-	err := orm.RegisterDriver("mysql", orm.DRMySQL)
-	if err != nil {
-		fmt.Println("database error", err)
-		return
-	}
-	err1 := orm.RegisterDataBase("default", "mysql", mysql_url)
-	if err1 != nil {
-		fmt.Println(err1)
-	}
-}
+//
 
 func main() {
 
-	beego.Router("/", &controllers.MainController{})
-	beego.Router("/home", &controllers.MainController{})
-	beego.ErrorController(&controllers.ErrorController{})
-	beego.Run()
+	app := iris.New()
+	//app.Logger().SetLevel("debug")
+	app.Use(recover.New())
+	app.Use(logger.New())
+
+	app.Handle("GET", "/", func(context iris.Context) {
+		_, _ = context.HTML("<h1>Index</h1><a href='/home'>home</a>" +
+			"<a href='/category'>catorey</a>" +
+			"<a href='/friends'>friends</a>" +
+			"<a href='/about'>about</a>")
+	})
+
+	app.Handle("GET", "/friends", func(context context.Context) {
+		_, _ = context.JSON(iris.Map{
+			"status": "200",
+			"msg":    "ok",
+		})
+	})
+
+	_ = app.Run(iris.Addr(":80"), iris.WithoutServerError(iris.ErrServerClosed))
 }
