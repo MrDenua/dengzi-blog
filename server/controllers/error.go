@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"github.com/astaxie/beego"
+	"astaxie/beego"
 	"pkg/errors"
 )
 

@@ -2,7 +2,6 @@ package controllers
 
 import (
 	"github.com/astaxie/beego"
-	"log"
 )
 
 type MainController struct {
@@ -11,8 +10,6 @@ type MainController struct {
 
 func (m *MainController) Get() {
 	m.TplName = "index.html"
-	err := m.Render()
-	if err != nil {
-		log.Fatal(err)
-	}
+	m.Data["a"] = "2123"
+	//m.Render()
 }

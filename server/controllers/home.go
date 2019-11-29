@@ -1,6 +1,6 @@
 package controllers
 
-import "github.com/astaxie/beego"
+import "astaxie/beego"
 
 type HomeController struct {
 	beego.Controller

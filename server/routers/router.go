@@ -1,13 +1,13 @@
-package router
+package routers
 
 import (
 	"astaxie/beego"
-	controllers2 "com.dengzii.blog/controllers"
+	"server/controllers"
 )
 
 func init() {
 
-	beego.Router("", &controllers2.MainController{})
+	beego.Router("", &controllers.MainController{})
 
 	//ns := beego.NewNamespace("*", beego.NSNamespace("/", &controllers.MainController{}, ""))
 	//beego.AddNamespace(ns)
