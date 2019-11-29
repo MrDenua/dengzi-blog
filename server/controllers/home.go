@@ -1,17 +1,11 @@
 package controllers
 
-import "astaxie/beego"
+import "github.com/kataras/iris/context"
 
-type HomeController struct {
-	beego.Controller
-}
-
-func (this *HomeController) Get() {
-
-	this.Data["user"] = "TomCat"
-	this.TplName = "home.tpl"
-}
-
-func init() {
-	beego.Router("/home", &HomeController{})
+func HomeController(ctx context.Context) {
+	_, _ = ctx.HTML(
+		"<h1>Index</h1><br><a href='/home'>home</a><br>" +
+			"<a href='/category'>catorey</a><br>" +
+			"<a href='/friends'>friends</a><br>" +
+			"<a href='/about'>about</a><br>")
 }

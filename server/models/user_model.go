@@ -1,7 +1,5 @@
 package models
 
-import "github.com/astaxie/beego/orm"
-
 type User struct {
 	Name      string
 	Avatar    string
@@ -14,5 +12,5 @@ type User struct {
 }
 
 func init() {
-	orm.RegisterModel(new(User))
+
 }

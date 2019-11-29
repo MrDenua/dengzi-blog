@@ -1,19 +1,7 @@
 package controllers
 
-import (
-	"astaxie/beego"
-	"pkg/errors"
-)
+import "github.com/kataras/iris/context"
 
-type ErrorController struct {
-	beego.Controller
-}
-
-func (c *ErrorController) RetError(e error) {
-	c.Data["json"] = "{\"status\":404}"
-	c.ServeJSON()
-}
-
-func (c *ErrorController) Error404() {
-	c.RetError(errors.New("404"))
+func ErrorController(ctx context.Context) {
+	ctx.WriteString("Error=>" + ctx.Path())
 }

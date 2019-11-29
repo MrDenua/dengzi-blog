@@ -2,13 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d86c1d96-2e92-4d05-a6f6-625f9478d827" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routers/routers.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/base.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/base.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/default.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/default.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/error.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/error.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/home.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/home.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/user_model.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/user_model.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers/router.go" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -18,9 +43,16 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="D:\go\go1.13.4" />
+  <component name="GOROOT" path="H:\Go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GoLibraries">
+    <option name="urls">
+      <list>
+        <option value="file://H:/go_path" />
+      </list>
+    </option>
   </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
@@ -31,6 +63,7 @@
   <component name="ProjectId" id="1TqAVUWKc4B1IlO4X8RMx10ZEUh" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="GO_FMT" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -52,17 +85,17 @@
     <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\github\dengzi-blog\server" />
-      <recent name="E:\github\dengzi-blog\server\src\com.dengzii.blog\main\views" />
-      <recent name="E:\github\dengzi-blog\server\src\com.dengzii.blog\controllers" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="H:\dengzi-blog\server" />
       <recent name="E:\github\dengzi-blog\server\main" />
       <recent name="E:\github\dengzi-blog\server" />
       <recent name="E:\github\dengzi-blog\server\src\com.dengzii\main" />
       <recent name="E:\github\dengzi-blog\server\src\com.dengzii\main\main" />
-      <recent name="E:\github\dengzi-blog\server\src\com.dengzii\blog" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\github\dengzi-blog\server" />
+      <recent name="E:\github\dengzi-blog\server\src\com.dengzii.blog\main\views" />
+      <recent name="E:\github\dengzi-blog\server\src\com.dengzii.blog\controllers" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -77,7 +110,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Build.go build server/main (2)">
+  <component name="RunManager" selected="Go Build.go build main.go">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application" singleton="false">
       <module name="server" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -88,14 +121,13 @@
       <output_directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="go build server" type="GoApplicationRunConfiguration" factoryName="Go Application" singleton="false" temporary="true" nameIsGenerated="true">
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" singleton="false" temporary="true" nameIsGenerated="true">
       <module name="server" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/main.go" />
-      <package value="server" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/main/main.go" />
       <directory value="$PROJECT_DIR$/" />
-      <output_directory value="$PROJECT_DIR$/out" />
+      <output_directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
     <configuration name="go build server/" type="GoApplicationRunConfiguration" factoryName="Go Application" singleton="false" temporary="true" nameIsGenerated="true">
@@ -107,52 +139,36 @@
       <output_directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="go build server/main (1)" type="GoApplicationRunConfiguration" factoryName="Go Application" singleton="false" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="DIRECTORY" />
-      <filePath value="$PROJECT_DIR$/main/main1.go" />
-      <package value="server/main" />
-      <directory value="$PROJECT_DIR$/" />
-      <output_directory value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build server/main (2)" type="GoApplicationRunConfiguration" factoryName="Go Application" singleton="false" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/main/main.go" />
-      <package value="server/main" />
-      <directory value="$PROJECT_DIR$/" />
-      <output_directory value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build server/main" type="GoApplicationRunConfiguration" factoryName="Go Application" singleton="false" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/main/old.main.go|$PROJECT_DIR$/main/main.go" />
-      <package value="server/main" />
-      <directory value="$PROJECT_DIR$/" />
-      <output_directory value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Go Build.go build server/" />
-      <item itemvalue="Go Build.go build server/main" />
-      <item itemvalue="Go Build.go build server" />
-      <item itemvalue="Go Build.go build server/main (1)" />
-      <item itemvalue="Go Build.go build server/main (2)" />
+      <item itemvalue="Go Build.go build main.go" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build server/main (2)" />
-        <item itemvalue="Go Build.go build server/main (1)" />
-        <item itemvalue="Go Build.go build server/main" />
-        <item itemvalue="Go Build.go build server" />
+        <item itemvalue="Go Build.go build main.go" />
         <item itemvalue="Go Build.go build server/" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@a92aa5c0" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@a92aa5c0" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@3b7dfdad" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
