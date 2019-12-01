@@ -6,6 +6,7 @@ import (
 	"log"
 	"server/controllers"
 	"server/controllers/common"
+	"server/controllers/user"
 )
 
 func Setup(app *iris.Application) {
@@ -18,6 +19,11 @@ func Setup(app *iris.Application) {
 			"status": "200",
 			"msg":    "ok",
 		})
+	})
+
+	app.Handle("POST", "/login", user.LoginController)
+	app.Handle("GET", "/login", func(i context.Context) {
+		i.View("login.html")
 	})
 	app.WildcardSubdomain(subdomainRouter)
 

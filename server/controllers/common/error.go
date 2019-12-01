@@ -4,7 +4,11 @@ import "github.com/kataras/iris/context"
 
 func ServerErrorController(ctx context.Context) {
 	msg := ctx.Values().GetString("error")
-	_, _ = ctx.Writef("<h1 style='color:red;'>Internal Server Error : %s</h1>", msg)
+	result := "<h1 style='color:red;'>Internal Server Error : %s</h1>"
+	if msg == "" {
+		result = "<h1 style='color:red;'>Unexcepted Internal Server Error%s</h1>"
+	}
+	_, _ = ctx.Writef(result, msg)
 }
 
 func NotFoundController(ctx context.Context) {

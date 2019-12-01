@@ -31,5 +31,8 @@ func main() {
 	debug()
 	static()
 	routers.Setup(app)
-	_ = app.Run(iris.Addr(":80"), iris.WithoutServerError(iris.ErrServerClosed))
+	_ = app.Run(
+		iris.Addr(":80"),
+		iris.WithCharset("UTF-8"),
+		iris.WithoutServerError(iris.ErrServerClosed))
 }

@@ -1,6 +1,6 @@
 package controllers
 
-type BaseModel struct {
+type BaseBean struct {
 	Status int      `json:"statuc"`
 	Msg    string   `json:"msg"`
 	Data   struct{} `json:"data"`
