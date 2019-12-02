@@ -4,12 +4,13 @@ import (
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/context"
 	"log"
+	"server/bootstrap"
 	"server/controllers"
 	"server/controllers/common"
 	"server/controllers/user"
 )
 
-func Setup(app *iris.Application) {
+func Setup(app *bootstrap.Bootstrapper) {
 
 	app.Use(common.AuthorityController)
 	app.Handle("GET", "/", controllers.HomeController)
@@ -35,13 +36,13 @@ func subdomainRouter(ctx context.Context) {
 	ctx.Application().Logger().Info("=> " + ctx.Subdomain())
 }
 
-func errorRouter(app *iris.Application) {
+func errorRouter(app *bootstrap.Bootstrapper) {
 	app.OnErrorCode(iris.StatusInternalServerError, common.ServerErrorController)
 	app.OnErrorCode(iris.StatusNotFound, common.NotFoundController)
 
 }
 
-func staticRouter(app *iris.Application) {
+func staticRouter(app *bootstrap.Bootstrapper) {
 	app.Get("/static/{f:string}", func(context context.Context) {
 		err := context.ServeFile("./static/a.png", false)
 		if err != nil {

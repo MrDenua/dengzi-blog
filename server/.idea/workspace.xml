@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d86c1d96-2e92-4d05-a6f6-625f9478d827" name="Default Changelist" comment="bootstrap mode">
-      <change afterPath="$PROJECT_DIR$/views/error.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/login.html" afterDir="false" />
+    <list default="true" id="d86c1d96-2e92-4d05-a6f6-625f9478d827" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/statics/favicon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/base_bean.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/base_bean.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/common/error.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/common/error.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/user/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/bootstrap.go" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/bootstrap.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routers/routers.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/routers.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/error.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,28 +74,29 @@
     <property name="go.tried.to.enable.integration.dep.integrator" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="go.vendoring.notification.had.been.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/statics" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="go.vgo" />
+    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\github\dengzi-blog\server\static" />
-      <recent name="E:\github\dengzi-blog\server" />
-      <recent name="E:\github\dengzi-blog\server\src\com.dengzii.blog\main\views" />
-      <recent name="E:\github\dengzi-blog\server\src\com.dengzii.blog\controllers" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\github\dengzi-blog\server\controllers\common" />
       <recent name="E:\github\dengzi-blog\server\controllers" />
       <recent name="E:\github\dengzi-blog\server\controllers\user" />
       <recent name="E:\github\dengzi-blog\server\controllers\article" />
       <recent name="H:\dengzi-blog\server" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="H:\dengzi-blog\server\statics" />
+      <recent name="E:\github\dengzi-blog\server\static" />
+      <recent name="E:\github\dengzi-blog\server" />
+      <recent name="E:\github\dengzi-blog\server\src\com.dengzii.blog\main\views" />
+      <recent name="E:\github\dengzi-blog\server\src\com.dengzii.blog\controllers" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -195,7 +192,8 @@
     <MESSAGE value="statement" />
     <MESSAGE value="refactory package" />
     <MESSAGE value="bootstrap mode" />
-    <option name="LAST_COMMIT_MESSAGE" value="bootstrap mode" />
+    <MESSAGE value="add login" />
+    <option name="LAST_COMMIT_MESSAGE" value="add login" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

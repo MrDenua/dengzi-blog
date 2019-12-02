@@ -11,9 +11,11 @@ import (
 
 type Configuretor func(*Bootstrapper)
 
+var debugMode bool
+
 const (
 	StaticAssets = "./statics/"
-	Favicon      = "favicon.ico"
+	Favicon      = "favicon.png"
 )
 
 type Bootstrapper struct {
@@ -25,8 +27,9 @@ type Bootstrapper struct {
 	Sessions *sessions.Sessions
 }
 
-func New(appName, appOwner string, cfgs ...Configuretor) *Bootstrapper {
+func New(appName, appOwner string, debug bool, cfgs ...Configuretor) *Bootstrapper {
 
+	debugMode = debug
 	b := &Bootstrapper{
 		Application:  iris.New(),
 		AppName:      appName,
@@ -40,7 +43,9 @@ func New(appName, appOwner string, cfgs ...Configuretor) *Bootstrapper {
 }
 
 func (b *Bootstrapper) SetupViews(viewDir string) {
-	b.RegisterView(iris.HTML(viewDir, ".html"))
+
+	templateEngine := iris.HTML(viewDir, ".html").Reload(debugMode)
+	b.RegisterView(templateEngine)
 }
 
 func (b *Bootstrapper) SetupSessions(expires time.Duration, cookieHashKey, cookieBlockKey []byte) {
@@ -81,6 +86,7 @@ func (b *Bootstrapper) Bootstrap() *Bootstrapper {
 	b.SetupErrorHandlers()
 
 	// static files
+	b.StaticHandler(StaticAssets, false, false)
 	b.Favicon(StaticAssets + Favicon)
 	//b.HandleDir(StaticAssets[1:len(StaticAssets)-1], StaticAssets)
 
