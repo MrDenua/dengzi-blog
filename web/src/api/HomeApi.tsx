@@ -4,6 +4,8 @@ import RuntimeError = WebAssembly.RuntimeError;
 
 const axios = require("axios");
 
+const baseUrl = "localhost";
+
 export class HomeApi {
 
     static getArticleList = getHomeArticleList
