@@ -6,11 +6,11 @@ import (
 	"server/routers"
 )
 
-var app *iris.Application
+var app *bootstrap.Bootstrapper
 
 func main() {
 
-	app := bootstrap.New("dengzi's blog", "dengzi", true)
+	app = bootstrap.New("dengzi's blog", "dengzi", true)
 
 	app.SetupViews("./views")
 	app.SetupErrorHandlers()

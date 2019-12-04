@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d86c1d96-2e92-4d05-a6f6-625f9478d827" name="Default Changelist" comment="" />
+    <list default="true" id="d86c1d96-2e92-4d05-a6f6-625f9478d827" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/middleware/authority.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/common.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/exception.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/middleware.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/request.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/security.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/bootstrap.go" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/bootstrap.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main/main.go" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +39,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Go Application" />
-        <option value="Go File" />
         <option value="HTML File" />
+        <option value="Go File" />
       </list>
     </option>
   </component>

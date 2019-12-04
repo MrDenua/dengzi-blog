@@ -6,6 +6,7 @@ import (
 	"github.com/kataras/iris/middleware/logger"
 	recover2 "github.com/kataras/iris/middleware/recover"
 	"github.com/kataras/iris/sessions"
+	"server/middleware"
 	"time"
 )
 
@@ -16,6 +17,8 @@ var debugMode bool
 const (
 	StaticAssets = "./statics/"
 	Favicon      = "favicon.png"
+	Views        = "./views"
+	ViewEx       = ".html"
 )
 
 type Bootstrapper struct {
@@ -42,9 +45,13 @@ func New(appName, appOwner string, debug bool, cfgs ...Configuretor) *Bootstrapp
 	return b
 }
 
+func (b *Bootstrapper) RegisterMiddleware(middleware middleware.Middleware) {
+	middleware.Attach(b)
+}
+
 func (b *Bootstrapper) SetupViews(viewDir string) {
 
-	templateEngine := iris.HTML(viewDir, ".html").Reload(debugMode)
+	templateEngine := iris.HTML(viewDir, ViewEx).Reload(debugMode)
 	b.RegisterView(templateEngine)
 }
 
@@ -78,7 +85,7 @@ func (b *Bootstrapper) Confiture(cs ...Configuretor) {
 }
 
 func (b *Bootstrapper) Bootstrap() *Bootstrapper {
-	b.SetupViews("./views")
+	b.SetupViews(Views)
 	b.SetupSessions(24*time.Hour,
 		[]byte("the-big-and-secret-fash-key-here"),
 		[]byte("lot-secret-of-characters-big-too"),
