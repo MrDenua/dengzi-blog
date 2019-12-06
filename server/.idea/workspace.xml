@@ -2,15 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d86c1d96-2e92-4d05-a6f6-625f9478d827" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/middleware/authority.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/common.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/exception.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/middleware.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/request.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/security.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controllers/base.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bootstrap/bootstrap.go" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/bootstrap.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/base_bean.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/base_controller.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/user/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers/routers.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/routers.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -197,7 +199,8 @@
     <MESSAGE value="bootstrap mode" />
     <MESSAGE value="add login" />
     <MESSAGE value="bootstrap" />
-    <option name="LAST_COMMIT_MESSAGE" value="bootstrap" />
+    <MESSAGE value="add middleware" />
+    <option name="LAST_COMMIT_MESSAGE" value="add middleware" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

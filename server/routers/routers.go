@@ -22,7 +22,12 @@ func Setup(app *bootstrap.Bootstrapper) {
 		})
 	})
 
-	app.Handle("POST", "/login", user.LoginController)
+	app.Handle("POST", "/login", func(i context.Context) {
+		err := user.LoginController(i)
+		if err != nil {
+			i.WriteString("error," + err.Error())
+		}
+	})
 	app.Handle("GET", "/login", func(i context.Context) {
 		i.View("login.html")
 	})

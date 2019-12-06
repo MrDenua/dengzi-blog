@@ -6,7 +6,6 @@ import (
 	"github.com/kataras/iris/middleware/logger"
 	recover2 "github.com/kataras/iris/middleware/recover"
 	"github.com/kataras/iris/sessions"
-	"server/middleware"
 	"time"
 )
 
@@ -39,15 +38,16 @@ func New(appName, appOwner string, debug bool, cfgs ...Configuretor) *Bootstrapp
 		AppOwner:     appOwner,
 		AppSpawnData: time.Now(),
 	}
+	b.Application.Configure(iris.WithCharset("UTF-8"))
 	for _, cfg := range cfgs {
 		cfg(b)
 	}
 	return b
 }
 
-func (b *Bootstrapper) RegisterMiddleware(middleware middleware.Middleware) {
-	middleware.Attach(b)
-}
+//func (b *Bootstrapper) RegisterMiddleware(middleware middleware.Middleware) {
+//	middleware.Attach(b)
+//}
 
 func (b *Bootstrapper) SetupViews(viewDir string) {
 
