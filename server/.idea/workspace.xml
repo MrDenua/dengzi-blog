@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d86c1d96-2e92-4d05-a6f6-625f9478d827" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/controllers/base.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/database.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/logger.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootstrap/bootstrap.go" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/bootstrap.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/base_bean.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/base_controller.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/user/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/user/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routers/routers.go" beforeDir="false" afterPath="$PROJECT_DIR$/routers/routers.go" afterDir="false" />
@@ -31,7 +28,12 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="FavoritesManager">
@@ -46,7 +48,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="H:\Go" />
+  <component name="GOROOT" path="D:\go\go1.13.4" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>

@@ -22,15 +22,22 @@ func Setup(app *bootstrap.Bootstrapper) {
 		})
 	})
 
-	app.Handle("POST", "/login", func(i context.Context) {
+	app.Handle("POST", "/user/login", func(i context.Context) {
 		err := user.LoginController(i)
 		if err != nil {
 			i.WriteString("error," + err.Error())
 		}
 	})
-	app.Handle("GET", "/login", func(i context.Context) {
+	app.Handle("POST", "/user/register", func(i context.Context) {
+		err := user.Register(i)
+		if err != nil {
+			i.WriteString("error," + err.Error())
+		}
+	})
+	app.Handle("GET", "/user/login", func(i context.Context) {
 		i.View("login.html")
 	})
+
 	app.WildcardSubdomain(subdomainRouter)
 
 	errorRouter(app)

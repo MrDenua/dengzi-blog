@@ -4,9 +4,10 @@ import (
 	"github.com/kataras/iris"
 	"github.com/kataras/iris/context"
 	"server/controllers"
+	"server/models"
 )
 
-type loginForm struct {
+type loginJson struct {
 	Name    string `json:"name"`
 	Passwd  string `json:"passwd"`
 	Captcha string `json:"captcha"`
@@ -14,18 +15,36 @@ type loginForm struct {
 
 func LoginController(ctx context.Context) (err error) {
 
-	var requestUser loginForm
-	//var user = models.GetUser(requestUser.Name, requestUser.Passwd)
+	var requestUser loginJson
 
 	err = ctx.ReadJSON(&requestUser)
-	response := controllers.CommonJson(300, "try again", requestUser)
-	ctx.StatusCode(iris.StatusOK)
-	if requestUser.Name == "dengzi" {
+	var user = models.GetUser(requestUser.Name, requestUser.Passwd)
+
+	response := controllers.CommonJson(400, "wrong password or username", nil)
+	if user != nil {
 		response.Status = 200
-		response.Msg = "login success"
-		_, err = ctx.JSON(response)
-	} else {
-		_, err = ctx.JSON(response)
+		response.Msg = "success"
+		response.Data = user
 	}
+	ctx.StatusCode(iris.StatusOK)
+	_, err = ctx.JSON(response)
+	return err
+}
+
+type registerJson struct {
+	Name    string `json:"name"`
+	Passwd  string `json:"passwd"`
+	Email   string `json:"email"`
+	Captcha string `json:"captcha"`
+}
+
+func Register(ctx context.Context) (err error) {
+
+	var user registerJson
+	err = ctx.ReadJSON(&user)
+	if err != nil {
+		return err
+	}
+	_, err = ctx.JSON(models.AddUser(user.Name, user.Passwd, user.Email))
 	return err
 }
