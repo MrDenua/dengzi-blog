@@ -21,7 +21,7 @@ func LoginController(ctx context.Context) (err error) {
 	var user = models.GetUser(requestUser.Name, requestUser.Passwd)
 
 	response := controllers.CommonJson(400, "wrong password or username", nil)
-	if user != nil {
+	if user.Name != "" {
 		response.Status = 200
 		response.Msg = "success"
 		response.Data = user

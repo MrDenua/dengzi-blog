@@ -17,11 +17,11 @@ type User struct {
 }
 
 func GetUser(name string, passwd string) *User {
+	var user User
 	tab := []interface{}{&User{}}
 	db.CreateTable(tab)
-	var u User
-	db.Mysql.Where("name = ? AND pass_wd = ?", name, passwd).Find(&u)
-	return &u
+	db.Mysql.Where("name = ? AND pass_wd = ?", name, passwd).Find(&user)
+	return &user
 }
 
 func AddUser(name string, passwd string, email string) *User {
