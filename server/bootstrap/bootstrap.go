@@ -49,9 +49,9 @@ func New(appName, appOwner string, debug bool, cfgs ...Configuretor) *Bootstrapp
 //	middleware.Attach(b)
 //}
 
-func (b *Bootstrapper) SetupViews(viewDir string) {
+func (b *Bootstrapper) SetupViews() {
 
-	templateEngine := iris.HTML(viewDir, ViewEx).Reload(debugMode)
+	templateEngine := iris.HTML(Views, ViewEx).Reload(debugMode)
 	b.RegisterView(templateEngine)
 }
 
@@ -85,7 +85,7 @@ func (b *Bootstrapper) Confiture(cs ...Configuretor) {
 }
 
 func (b *Bootstrapper) Bootstrap() *Bootstrapper {
-	b.SetupViews(Views)
+	b.SetupViews()
 	b.SetupSessions(24*time.Hour,
 		[]byte("the-big-and-secret-fash-key-here"),
 		[]byte("lot-secret-of-characters-big-too"),

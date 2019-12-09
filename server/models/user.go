@@ -3,16 +3,16 @@ package models
 import "server/db"
 
 type User struct {
-	ID         uint
-	Name       string `json:"name"`
-	Avatar     string `json:"avatar"`
-	Email      string `json:"email"`
-	Bio        string `json:"bio"`
-	Links      string `json:"links"`
-	Likes      int32  `json:"likes"`
-	Follower   int32  `json:"follower"`
-	Following  int32  `json:"following"`
-	PassWd     string
+	Id         uint
+	Name       string `gorm:"not null VARCHAR(191)"`
+	Avatar     string `gorm:"not null VARCHAR(191)"`
+	Email      string `gorm:"not null VARCHAR(191)"`
+	Bio        string `gorm:"not null VARCHAR(191)"`
+	Links      string `gorm:"not null INT(191)"`
+	Likes      int32  `gorm:"not null INT(191)"`
+	Follower   int32  `gorm:"not null INT(191)"`
+	Following  int32  `gorm:"not null INT(191)"`
+	PassWd     string `gorm:"not null VARCHAR(191)"`
 	CreateDate string
 }
 
@@ -24,19 +24,20 @@ func GetUser(name string, passwd string) *User {
 	return &user
 }
 
-func AddUser(name string, passwd string, email string) *User {
+func IsUserExists(name string) (exists bool) {
+	var user User
+	db.Mysql.Where("name = ?", name).Find(&user).Limit(1)
+	return user.Id != 0
+}
+
+func CreateUser(name string, passwd string, email string) *User {
 	tab := []interface{}{&User{}}
 	db.CreateTable(tab)
+
 	user := &User{
-		Name:      name,
-		Email:     email,
-		Avatar:    "",
-		Bio:       "",
-		Links:     "",
-		Likes:     0,
-		Follower:  0,
-		Following: 0,
-		PassWd:    passwd,
+		Name:   name,
+		Email:  email,
+		PassWd: passwd,
 	}
 	db.Insert(user)
 	return user

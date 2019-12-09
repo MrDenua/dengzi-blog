@@ -20,7 +20,6 @@ func Init() {
 
 func Insert(value interface{}) {
 
-	Mysql.NewRecord(value)
 	Mysql.Create(value)
 }
 
