@@ -1,54 +1,41 @@
-import React, {Component} from "react";
+import React from "react";
 import AppBar from "@material-ui/core/AppBar";
 import {createStyles, IconButton, Theme, Toolbar, Typography} from "@material-ui/core";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import {Close, Search} from "@material-ui/icons";
+import {Close, Search, Menu} from "@material-ui/icons";
 import InputBase from "@material-ui/core/InputBase";
 import {fade} from "@material-ui/core/styles";
 
-class NavBarComponent extends Component<{ onMenuClick: (drawerHidden: boolean) => void }, { drawerHidden: boolean }> {
+type navBarProps = {
+    onMenuClick: (drawerHidden: boolean) => void,
+    drawerHidden: boolean
+};
 
-    constructor(props: Readonly<{ onMenuClick: () => void }>) {
-        super(props);
-        this.handMenuIconClick = this.handMenuIconClick.bind(this);
-        this.state = {drawerHidden: false}
-    }
+export default function NavBarComponent(props: navBarProps) {
 
-    handMenuIconClick() {
+    let menuClickListener = () => {
+        props.onMenuClick(!props.drawerHidden);
+    };
 
-        this.setState({drawerHidden: !this.state.drawerHidden});
-        this.props.onMenuClick(!this.state.drawerHidden);
-    }
-
-    componentDidMount(): void {
-
-        // this.context.router.history.listen((r: LocationState) => {
-        //     console.log(r);
-        // });
-    }
-
-    render() {
-
-        return (
-            <div style={{flexGrow: 1}}>
-                <AppBar position="static">
-                    <Toolbar>
-                        <IconButton edge="start" color="inherit" aria-label="menu" onClick={this.handMenuIconClick}>
-                            <Close/>
-                        </IconButton>
-                        <Typography variant="h6" style={{
-                            flexGrow: 1,
-                            paddingRight: "16px"
-                        }}>
-                            Home
-                        </Typography>
-                        <SearchComp/>
-                        {/*<Button color="inherit">Login</Button>*/}
-                    </Toolbar>
-                </AppBar>
-            </div>
-        )
-    }
+    return (
+        <div style={{flexGrow: 1}}>
+            <AppBar position="static">
+                <Toolbar>
+                    <IconButton edge="start" color="inherit" aria-label="menu" onClick={menuClickListener}>
+                        {props.drawerHidden ? (<Menu/>) : (<Close/>)}
+                    </IconButton>
+                    <Typography variant="h6" style={{
+                        flexGrow: 1,
+                        paddingRight: "16px"
+                    }}>
+                        Home
+                    </Typography>
+                    <SearchComponent/>
+                    {/*<Button color="inherit">Login</Button>*/}
+                </Toolbar>
+            </AppBar>
+        </div>
+    )
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -106,7 +93,7 @@ const useStyles = makeStyles((theme: Theme) =>
     }),
 );
 
-function SearchComp(prop: any) {
+function SearchComponent() {
     const classes = useStyles();
     return (<div className={classes.search}>
         <div className={classes.searchIcon}>
@@ -122,6 +109,3 @@ function SearchComp(prop: any) {
         />
     </div>)
 }
-
-
-export default NavBarComponent

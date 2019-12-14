@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import ArticleListItem from "./widget/ArticleListItem";
 import {Box} from "@material-ui/core";
 
@@ -70,6 +70,28 @@ class ArticleListComponent extends React.Component<{ type?: string }, any> {
         </Box>);
     }
 }
+
+function userLoginStatus(fr:string) {
+
+}
+
+function ArticleListComponent2(prop: any) {
+    const [hover, setHover]: [number, any] = useState(0);
+    useEffect(() => {
+        document.title = 'component refreshed. ' + hover;
+        return () => {
+            console.log('do something when component destroy.')
+        };
+    });
+
+    return (<div>
+        <button onClick={() => {
+            setHover(hover + 1)
+        }}>Click = {hover}
+        </button>
+    </div>)
+}
+
 const StyleMainContainer = {
     paddingLeft: '40px',
     paddingTop: '50px',
