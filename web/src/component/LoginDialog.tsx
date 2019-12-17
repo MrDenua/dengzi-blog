@@ -9,13 +9,10 @@ import {
     TextField
 } from "@material-ui/core";
 
-export default function LoginDialog(props: { open: boolean }) {
-
-    let [open, setOpen] = React.useState(props.open);
-    const onCloseDialog = () => setOpen(false);
+export default function LoginDialog(props: { open: boolean, onClose: () => void }) {
 
     return (<div>
-        <Dialog open={open} onClose={onCloseDialog} aria-labelledby="form-dialog-title">
+        <Dialog open={props.open} onClose={props.onClose} aria-labelledby="form-dialog-title">
             <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
             <DialogContent>
                 <DialogContentText>
@@ -32,10 +29,10 @@ export default function LoginDialog(props: { open: boolean }) {
                 />
             </DialogContent>
             <DialogActions>
-                <Button onClick={onCloseDialog} color="primary">
+                <Button onClick={props.onClose} color="primary">
                     Cancel
                 </Button>
-                <Button onClick={onCloseDialog} color="primary">
+                <Button onClick={props.onClose} color="primary">
                     Subscribe
                 </Button>
             </DialogActions>

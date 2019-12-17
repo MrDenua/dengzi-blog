@@ -2,11 +2,11 @@ import React from "react";
 import {Box} from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
 import List from "@material-ui/core/List";
-import Hidden from "@material-ui/core/Hidden";
 import Avatar from "@material-ui/core/Avatar";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import DrawerNavItem, {NavItemProps} from "./widget/DrawerNavItem";
+import LoginDialog from "./LoginDialog";
 
 const style = {
     height: "100vh",
@@ -20,17 +20,6 @@ const categories: NavItemProps[] = [
     "TypeScript",
     "Android"
 ].map((value) => createNav(value, "/category/" + value.toLowerCase()));
-
-const nav: NavItemProps[] = [
-    createNav("New", "/new"),
-    createNav("Home", "/home"),
-    createNav("Category", "/category", categories),
-    createNav("Friends", "/friends"),
-    createNav("About", "/about"),
-    createNav(""),
-    createNav("Settings"),
-    createNav("Login")
-];
 
 function createNav(title: string, path: string = "#", child: undefined | NavItemProps[] = undefined): NavItemProps {
     return {
@@ -53,6 +42,17 @@ function DrawerHeaderComponent() {
 export default function DrawerComponent() {
 
     let [currentPath, setCurrentPath] = React.useState(window.location.pathname);
+    let [loginDialogOpen, setLoginDialogOpen] = React.useState(false);
+
+    const nav: NavItemProps[] = [
+        createNav("New", "/new"),
+        createNav("Home", "/home"),
+        createNav("Category", "/category", categories),
+        createNav("Friends", "/friends"),
+        createNav("About", "/about"),
+        createNav(""),
+        createNav("Settings")
+    ];
 
     let onItemSelected = (path: string) => {
         if (path === "#") {
@@ -60,6 +60,13 @@ export default function DrawerComponent() {
         }
         setCurrentPath(path)
     };
+
+    let loginItem = createNav("Login");
+
+    loginItem.onSelect = (path: string) => {
+        setLoginDialogOpen(!loginDialogOpen);
+    };
+    nav.push(loginItem);
 
     React.useEffect(() => {
 
@@ -71,17 +78,16 @@ export default function DrawerComponent() {
                 value.onSelect = onItemSelected;
             }
             value.currentPath = currentPath;
-            return (value.title === "" ? divider : <DrawerNavItem {...value}/>);
+            return (value.title === "" ? divider : <DrawerNavItem {...value} key={value.title}/>);
         }
     );
 
     return (<div>
-        <Hidden implementation="css">
-            <Box bgcolor="background.paper" style={style}>
-                <DrawerHeaderComponent/>
-                <Divider/>
-                <List>{items}</List>
-            </Box>
-        </Hidden>
+        <Box bgcolor="background.paper" style={style}>
+            <DrawerHeaderComponent/>
+            <LoginDialog open={loginDialogOpen} onClose={() => setLoginDialogOpen(false)}/>
+            <Divider/>
+            <List>{items}</List>
+        </Box>
     </div>)
 }

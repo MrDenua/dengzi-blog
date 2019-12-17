@@ -53,15 +53,11 @@ export default class DrawerNavItem extends React.Component<NavItemProps, { expan
 
     handleItemClick(e: React.MouseEvent): void {
         e.preventDefault();
-        if (this.props.isButton) {
-            return;
+        if (this.props.onSelect !== undefined) {
+            this.props.onSelect(this.props.path);
         }
         if (this.hasChild()) {
             this.setState({expand: !this.state.expand});
-            return;
-        }
-        if (this.props.onSelect !== undefined) {
-            this.props.onSelect(this.props.path);
         }
     }
 
