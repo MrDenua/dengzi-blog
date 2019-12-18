@@ -17,7 +17,6 @@ function isMobile(): boolean {
 export default function MainComponent() {
 
     let [drawerHidden, setDrawerHidden] = useState(isMobile());
-    console.log('==' + drawerHidden);
 
     return (<div className="App">
         <BrowserRouter>

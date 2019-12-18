@@ -5,7 +5,7 @@ import List from "@material-ui/core/List";
 import Avatar from "@material-ui/core/Avatar";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import DrawerNavItem, {NavItemProps} from "./widget/DrawerNavItem";
+import DrawerNavItem, {NavItemProps} from "./DrawerNavItem";
 import LoginDialog from "./LoginDialog";
 
 const style = {
@@ -23,7 +23,7 @@ const categories: NavItemProps[] = [
 
 function createNav(title: string, path: string = "#", child: undefined | NavItemProps[] = undefined): NavItemProps {
     return {
-        title: title, path: path, currentPath: "/", child: child, isButton: path === "#", onSelect: undefined
+        title: title, path: path, currentPath: "/", child: child, isButton: path === "#" || child !== undefined, onSelect: undefined
     }
 }
 

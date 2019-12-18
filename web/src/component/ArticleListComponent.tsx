@@ -1,6 +1,10 @@
 import React, {useEffect, useState} from "react";
-import ArticleListItem from "./widget/ArticleListItem";
-import {Box} from "@material-ui/core";
+import {Box, Card} from "@material-ui/core";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
+import CardActions from "@material-ui/core/CardActions";
+import {Link} from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 export interface Article {
     title: string,
@@ -71,25 +75,35 @@ class ArticleListComponent extends React.Component<{ type?: string }, any> {
     }
 }
 
-function userLoginStatus(fr:string) {
+class ArticleListItem extends React.Component<{ article: Article }, any> {
 
-}
+    private _article: Article;
 
-function ArticleListComponent2(prop: any) {
-    const [hover, setHover]: [number, any] = useState(0);
-    useEffect(() => {
-        document.title = 'component refreshed. ' + hover;
-        return () => {
-            console.log('do something when component destroy.')
-        };
-    });
+    constructor(props: { article: Article }, context: any) {
+        super(props, context);
+        this._article = props.article;
+    }
 
-    return (<div>
-        <button onClick={() => {
-            setHover(hover + 1)
-        }}>Click = {hover}
-        </button>
-    </div>)
+    render() {
+        return (<Box paddingBottom={"16px"}>
+            <Card>
+                <CardContent>
+                    <Typography color="textPrimary" gutterBottom variant={"h5"}
+                                component={"h2"}>{this._article.title}</Typography>
+                    <Typography color={"textSecondary"}
+                                component={"p"}
+                                variant={"subtitle2"}>{this._article.date.toLocaleTimeString()}</Typography>
+                    <Typography color="textSecondary" variant={"body1"}
+                                component={"p"}>{this._article.content}</Typography>
+                </CardContent>
+                <CardActions>
+                    <Link to={"/article/1"} style={{textDecoration: "none"}}>
+                        <Button size={"small"} color={"primary"}>Read More</Button>
+                    </Link>
+                </CardActions>
+            </Card>
+        </Box>);
+    }
 }
 
 const StyleMainContainer = {
@@ -98,4 +112,5 @@ const StyleMainContainer = {
     paddingRight: '40px',
     height: '85vh',
 };
+
 export default ArticleListComponent

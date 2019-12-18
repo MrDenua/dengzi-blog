@@ -13,28 +13,18 @@ export default function LoginDialog(props: { open: boolean, onClose: () => void 
 
     return (<div>
         <Dialog open={props.open} onClose={props.onClose} aria-labelledby="form-dialog-title">
-            <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+            <DialogTitle id="form-dialog-title">User Login</DialogTitle>
             <DialogContent>
                 <DialogContentText>
-                    To subscribe to this website, please enter your email address here. We will send updates
-                    occasionally.
+                    Please fill in email address and password.
+                    if you don't have an account yet, please register.
                 </DialogContentText>
-                <TextField
-                    autoFocus
-                    margin="dense"
-                    id="name"
-                    label="Email Address"
-                    type="email"
-                    fullWidth
-                />
+                <TextField autoFocus margin="dense" id="name" label="Email Address" type="email" fullWidth/>
+                <TextField autoFocus margin="dense" id="password" label="Password" type="password" fullWidth/>
             </DialogContent>
             <DialogActions>
-                <Button onClick={props.onClose} color="primary">
-                    Cancel
-                </Button>
-                <Button onClick={props.onClose} color="primary">
-                    Subscribe
-                </Button>
+                <Button onClick={props.onClose} color="primary">Cancel</Button>
+                <Button onClick={props.onClose} color="primary">Login</Button>
             </DialogActions>
         </Dialog>
     </div>)
