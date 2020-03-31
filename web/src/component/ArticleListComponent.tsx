@@ -109,7 +109,6 @@ const StyleMainContainer = {
     paddingLeft: '40px',
     paddingTop: '50px',
     paddingRight: '40px',
-    height: '88vh',
 };
 
 export default ArticleListComponent
