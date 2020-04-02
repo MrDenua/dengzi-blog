@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
 import {BrowserRouter} from "react-router-dom";
 import Box from "@material-ui/core/Box";
-import {Grid, Paper} from "@material-ui/core";
+import {createStyles, Grid, Paper, Theme, Typography} from "@material-ui/core";
 import MainRouter from "../router/MainRouter";
-import Container from "@material-ui/core/Container";
+import {makeStyles} from "@material-ui/core/styles";
+import NavComponent from "./NavComponent";
 
 function isMobile(): boolean {
     let mobileAgent = false;///Android|iPhone|iPod|BlackBerry/i.test(navigator.userAgent);
@@ -11,21 +12,47 @@ function isMobile(): boolean {
     return mobileAgent || smallScreen;
 }
 
+let useStyle = makeStyles((theme: Theme) =>
+    createStyles({
+        head: {
+            height: "80px",
+            width: "100%",
+            bgColor: "white",
+            zIndex: 100,
+            position: "fixed"
+        }
+    })
+);
+
 export default function MainComponent() {
 
     let [drawerHidden, setDrawerHidden] = useState(isMobile());
 
-    return (<div className="App" >
-
+    const style = useStyle();
+    return (<div className="App">
         <BrowserRouter>
-            <Grid container style={{background: '#eee'}} justify={"center"}>
-                <Box minHeight={"60px"} width={"100%"} bgcolor={"white"} zIndex={999} position={"fixed"}>
-
-                </Box>
-                <Grid md={12} style={{background:"white"}}>
-
+            <Box className={style.head} justifyItems>
+                <Grid container justify={"center"}>
+                    <Grid xs={12} md={10} lg={6}>
+                        <Grid xs={12}>
+                            <Typography variant={"h4"} style={{paddingTop: "16px"}}>
+                                dengzi blog
+                            </Typography>
+                            <Typography variant={'subtitle2'} color={"textSecondary"}>
+                                try your best, and be best you!
+                            </Typography>
+                        </Grid>
+                        <Grid xs={12} spacing={4}>
+                            <NavComponent/>
+                        </Grid>
+                    </Grid>
                 </Grid>
-                <Grid md={6} >
+            </Box>
+            <Grid container style={{background: '#eee'}} justify={"center"}>
+                <Grid xs={12}>
+                    <Box minHeight={"160px"} bgcolor={"white"}/>
+                </Grid>
+                <Grid md={10} lg={6}>
                     <Box height={"16px"}/>
                     <Paper elevation={0}>
                         <MainRouter/>
