@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {BrowserRouter} from "react-router-dom";
 import Box from "@material-ui/core/Box";
 import {createStyles, Grid, Paper, Theme, Typography} from "@material-ui/core";
@@ -14,72 +14,57 @@ function isMobile(): boolean {
 
 let useStyle = makeStyles((theme: Theme) =>
     createStyles({
+        root: {
+            background: '#eee',
+        },
         head: {
-            height: "80px",
+            paddingTop: theme.spacing(4),
             width: "100%",
-            bgColor: "white",
-            zIndex: 100,
-            position: "fixed"
+            background: "white"
+        },
+        title: {},
+        body: {
+            paddingTop: theme.spacing(2)
+        },
+        nav: {
+            paddingTop: theme.spacing(2),
         }
     })
 );
 
 export default function MainComponent() {
 
-    let [drawerHidden, setDrawerHidden] = useState(isMobile());
+    const classes = useStyle();
 
-    const style = useStyle();
     return (<div className="App">
         <BrowserRouter>
-            <Box className={style.head} justifyItems>
+            <Box>
                 <Grid container justify={"center"}>
-                    <Grid xs={12} md={10} lg={6}>
-                        <Grid xs={12}>
-                            <Typography variant={"h4"} style={{paddingTop: "16px"}}>
+
+                </Grid>
+            </Box>
+            <Grid className={classes.root} container justify={"center"}>
+                <Grid item className={classes.head} xs={12} container justify={"center"}>
+                    <Grid item xs={12} md={10} lg={6}>
+                        <Box className={classes.title}>
+                            <Typography variant={"h4"}>
                                 dengzi blog
                             </Typography>
                             <Typography variant={'subtitle2'} color={"textSecondary"}>
                                 try your best, and be best you!
                             </Typography>
-                        </Grid>
-                        <Grid xs={12} spacing={4}>
+                        </Box>
+                        <Grid item xs={12} className={classes.nav}>
                             <NavComponent/>
                         </Grid>
                     </Grid>
                 </Grid>
-            </Box>
-            <Grid container style={{background: '#eee'}} justify={"center"}>
-                <Grid xs={12}>
-                    <Box minHeight={"160px"} bgcolor={"white"}/>
-                </Grid>
-                <Grid md={10} lg={6}>
-                    <Box height={"16px"}/>
+                <Grid item className={classes.body} md={10} lg={6}>
                     <Paper elevation={0}>
                         <MainRouter/>
                     </Paper>
                 </Grid>
             </Grid>
-            {/*<Hidden mdUp>*/}
-            {/*    <Drawer open={!drawerHidden && isMobile()} anchor={"left"}*/}
-            {/*            onClose={() => setDrawerHidden(!drawerHidden)}>*/}
-            {/*        <DrawerComponent/>*/}
-            {/*    </Drawer>*/}
-            {/*</Hidden>*/}
-            {/*<Grid container spacing={0}>*/}
-            {/*    <Grid item={true} md={2} hidden={drawerHidden}>*/}
-            {/*        <Hidden xsDown>*/}
-            {/*            <DrawerComponent/>*/}
-            {/*        </Hidden>*/}
-            {/*    </Grid>*/}
-            {/*    <Grid item={true} xs md xl lg>*/}
-            {/*        <Box height={"100vh"} width={"100%"} bgcolor="background.default">*/}
-            {/*            <NavBarComponent onMenuClick={setDrawerHidden} drawerHidden={drawerHidden}/>*/}
-            {/*            <Box style={{overflow: "auto"}}>*/}
-            {/*                <MainRouter/>*/}
-            {/*            </Box>*/}
-            {/*        </Box>*/}
-            {/*    </Grid>*/}
-            {/*</Grid>*/}
         </BrowserRouter>
     </div>)
 }
